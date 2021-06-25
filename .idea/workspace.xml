@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2abc21ff-6bfd-4049-b2e0-625250ac47a8" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/java/src/test.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/test.java" afterDir="false" />
+    <list default="true" id="2abc21ff-6bfd-4049-b2e0-625250ac47a8" name="Default Changelist" comment="新建了C++文件夹">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/C++/test.txt" beforeDir="false" afterPath="$PROJECT_DIR$/C++/test.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/MyCode.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/out/production/MyCode/test.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +68,16 @@
       <option name="presentableId" value="Default" />
       <updated>1624607478946</updated>
       <workItem from="1624607481258" duration="317000" />
+      <workItem from="1624607892010" duration="822000" />
     </task>
+    <task id="LOCAL-00001" summary="新建了C++文件夹">
+      <created>1624608060697</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1624608060697</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -68,6 +86,31 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="roots">
+                    <value>
+                      <list>
+                        <option value="$PROJECT_DIR$" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
@@ -75,5 +118,10 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="新建了C++文件夹" />
+    <option name="LAST_COMMIT_MESSAGE" value="新建了C++文件夹" />
   </component>
 </project>
