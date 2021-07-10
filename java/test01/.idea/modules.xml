@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/bookmail/bookmail.iml" filepath="$PROJECT_DIR$/bookmail/bookmail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/java-web-jQuery/java-web-jQuery.iml" filepath="$PROJECT_DIR$/java-web-jQuery/java-web-jQuery.iml" />
+      <module fileurl="file://$PROJECT_DIR$/javase-study/javase-study.iml" filepath="$PROJECT_DIR$/javase-study/javase-study.iml" />
       <module fileurl="file://$PROJECT_DIR$/test01.iml" filepath="$PROJECT_DIR$/test01.iml" />
+      <module fileurl="file://$PROJECT_DIR$/testtomcat/testtomcat.iml" filepath="$PROJECT_DIR$/testtomcat/testtomcat.iml" />
     </modules>
   </component>
 </project>
