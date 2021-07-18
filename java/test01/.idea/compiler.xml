@@ -7,9 +7,12 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="testtomcat" />
+        <module name="bookmail" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="bookmail" target="1.8" />
+      <module name="studyservlet" target="1.8" />
       <module name="testtomcat" target="1.8" />
     </bytecodeTargetLevel>
   </component>

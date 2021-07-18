@@ -3,4 +3,51 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
          version="4.0">
+
+    <!-- 给 tomcat配置servlet程序-->
+    <servlet>
+        <servlet-name>test</servlet-name>
+        <servlet-class>test</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HelloServlet</servlet-name>
+        <servlet-class>HelloServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>HelloServlet2</servlet-name>
+        <servlet-class>HelloServlet</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Response01</servlet-name>
+        <servlet-class>Response01</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>Response02</servlet-name>
+        <servlet-class>Response02</servlet-class>
+    </servlet>
+
+
+
+    <!--给servlet程序配置访问地址-->
+    <servlet-mapping>
+        <servlet-name>test</servlet-name>
+        <url-pattern>/hello</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloServlet</servlet-name>
+        <url-pattern>/hello1</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>HelloServlet2</servlet-name>
+        <url-pattern>/hello2</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Response01</servlet-name>
+        <url-pattern>/response01</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Response02</servlet-name>
+        <url-pattern>/response02</url-pattern>
+    </servlet-mapping>
+
 </web-app>

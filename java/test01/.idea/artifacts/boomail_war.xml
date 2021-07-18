@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="boomail:war">
+    <output-path>$PROJECT_DIR$/boomail/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>boomail</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="boomail-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="boomail:war exploded" />
+    </root>
+  </artifact>
+</component>

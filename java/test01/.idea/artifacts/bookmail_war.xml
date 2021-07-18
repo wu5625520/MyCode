@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="bookmail:war">
+    <output-path>$PROJECT_DIR$/bookmail/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>bookmail</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="bookmail-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="bookmail:war exploded" />
+    </root>
+  </artifact>
+</component>
