@@ -1,12 +1,16 @@
+import com.bookmail.bean.Book;
 import com.bookmail.bean.User;
 import com.bookmail.dao.UserDao;
 import com.bookmail.dao.impl.UserDaoImpl;
+import com.bookmail.service.BookService;
 import com.bookmail.service.UserService;
+import com.bookmail.service.impl.BookServiceImpl;
 import com.bookmail.service.impl.UserServiceImpl;
 import com.bookmail.utils.JdbcUtils;
 import sun.rmi.server.UnicastServerRef;
 
 import java.sql.Connection;
+import java.util.List;
 
 /**
  * @author wxy
@@ -52,5 +56,13 @@ public class Test {
 //        userService.registUser(xx);
         //登陆and存在
         System.out.println(userService.existUser("xx"));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void test04(){
+        BookService bookService = new BookServiceImpl();
+        List<Book> allBook = bookService.getAllBook();
+        System.out.println(allBook);
+
     }
 }

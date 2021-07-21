@@ -1,15 +1,25 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
 <title>图书管理</title>
-<link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
+	<%-- 静态包含 base标签、css样式、jQuery文件 --%>
+	<%@ include file="../common/head.jsp"%>
+	<%--	不要用相对地址 /google网页检查看下哪个引入错误--%>
+	<script type="text/javascript">
+		$(function (){
+			$("a.deleteClass").click(function(){
+				return confirm("Do you confirm to delete the [" + $(this).parent().parent().find("td:first").text() + "] ?");
+			});
+		});
+	</script>
+
 </head>
 <body>
-	
 	<div id="header">
-			<img class="logo_img" alt="" src="../../static/img/logo.gif" >
+			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/static/img/logo.gif" >
 			<span class="wel_word">图书管理系统</span>
 			<%@include file="../common/manage.jsp"%>
 	</div>
@@ -23,47 +33,18 @@
 				<td>销量</td>
 				<td>库存</td>
 				<td colspan="2">操作</td>
-			</tr>		
-			<tr>
-				<td>时间简史</td>
-				<td>20.00</td>
-				<td>霍金</td>
-				<td>200</td>
-				<td>400</td>
-				<td><a href="book_edit.jsp">修改</a></td>
-				<td><a href="#">删除</a></td>
-			</tr>	
-			
-			<tr>
-				<td>时间简史</td>
-				<td>20.00</td>
-				<td>霍金</td>
-				<td>200</td>
-				<td>400</td>
-				<td><a href="book_edit.jsp">修改</a></td>
-				<td><a href="#">删除</a></td>
-			</tr>	
-			
-			<tr>
-				<td>时间简史</td>
-				<td>20.00</td>
-				<td>霍金</td>
-				<td>200</td>
-				<td>400</td>
-				<td><a href="book_edit.jsp">修改</a></td>
-				<td><a href="#">删除</a></td>
-			</tr>	
-			
-			<tr>
-				<td>时间简史</td>
-				<td>20.00</td>
-				<td>霍金</td>
-				<td>200</td>
-				<td>400</td>
-				<td><a href="book_edit.jsp">修改</a></td>
-				<td><a href="#">删除</a></td>
-			</tr>	
-			
+			</tr>
+			<c:forEach varStatus="status" items="${requestScope.books}" var="book">
+				<tr>
+					<td>${book.name}</td>
+					<td>${book.price}</td>
+					<td>${book.author}</td>
+					<td>${book.sales}</td>
+					<td>${book.stock}</td>
+					<td><a href="http://localhost:8080/bookmail/manager/bookControl?action=getBook&id=${book.id}">修改</a></td>
+					<td><a class="deleteClass" href="http://localhost:8080/bookmail/manager/bookControl?action=deleteBook&id=${book.id}">删除</a></td>
+				</tr>
+			</c:forEach>
 			<tr>
 				<td></td>
 				<td></td>
@@ -71,15 +52,23 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><a href="book_edit.jsp">添加图书</a></td>
+				<td><a href="http://localhost:8080/bookmail/pages/manager/book_edit.jsp">添加图书</a></td>
 			</tr>	
 		</table>
+		<div align="center">
+			<a>首页</a>
+			<a>上一页</a>
+			<a>当前页</a>
+			<a>下一页</a>
+			<a>尾页</a>
+			<a>共x页，xx条记录</a>
+			<a>跳转到第</a>
+			<input type="text" style="width: 20px">
+			<a>页</a>
+			<button type="submit">确定</button>
+		</div>
 	</div>
-	
-	<div id="bottom">
-		<span>
-			尚硅谷书城.Copyright &copy;2015
-		</span>
-	</div>
+
+	<%@include file="../common/bottom.jsp"%>
 </body>
 </html>

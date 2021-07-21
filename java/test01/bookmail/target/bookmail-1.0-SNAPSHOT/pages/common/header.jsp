@@ -7,11 +7,11 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <div id="header">
-    <img class="logo_img" alt="" src="../../static/img/logo.gif" >
+    <img class="logo_img" alt="" src="http://localhost:8080/bookmail/static/img/logo.gif" >
     <div>
         <span>欢迎<span class="um_span">韩总</span>光临尚硅谷书城</span>
-        <a href="../order/order.jsp">我的订单</a>
-        <a href="../../index.jsp">注销</a>&nbsp;&nbsp;
-        <a href="../../index.jsp">返回</a>
+        <a href="http://localhost:8080/bookmail/pages/order/order.jsp">我的订单</a>
+        <a href="http://localhost:8080/bookmail/index.jsp">注销</a>&nbsp;&nbsp;
+        <a href="http://localhost:8080/bookmail/index.jsp">返回</a>
     </div>
 </div>

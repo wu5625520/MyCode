@@ -3,6 +3,7 @@ package com.bookmail.controller;
 import com.bookmail.bean.User;
 import com.bookmail.service.UserService;
 import com.bookmail.service.impl.UserServiceImpl;
+import com.bookmail.utils.ToBeanUtils;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.lang.reflect.Method;
+import java.util.Map;
 
 /**
  * @author wxy
@@ -21,9 +23,12 @@ public class UserControl extends BaseControl {
     UserService userService = new UserServiceImpl();
 
     protected void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-            String username = req.getParameter("username");
-            String password = req.getParameter("password");
-            switch (userService.login(new User(username, password))){
+//        System.out.println(req.getParameterMap());
+        for(Map.Entry<String, String[]> entry: req.getParameterMap().entrySet()){
+            System.out.println(entry.getKey() + "=" + entry.getValue()[0]);
+        }
+        User user = ToBeanUtils.paramToBean(req.getParameterMap(), new User());
+        switch (userService.login(user)){
                 case 0:
                     req.setAttribute("msg", "用户名不存在，请注册");
                     req.setAttribute("username", req.getParameter("username"));
@@ -45,15 +50,13 @@ public class UserControl extends BaseControl {
     }
 
     protected void regist(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
-        String username = req.getParameter("username");
-        String password = req.getParameter("password");
-        String email = req.getParameter("email");
+        User user = ToBeanUtils.paramToBean(req.getParameterMap(), new User());
         String code = req.getParameter("code");
         if(!"666".equalsIgnoreCase(code)){
             req.setAttribute("msg", "验证码错误");
-            req.setAttribute("username", username);
-            req.setAttribute("password", password);
-            req.setAttribute("email", email);
+            req.setAttribute("username", user.getUsername());
+            req.setAttribute("password", user.getPassword());
+            req.setAttribute("email", user.getEmail());
             req.setAttribute("code", code);
             System.out.println("验证码错误");  //需要发送到前端？ 验证码需要后端动态生成？
             //resp.sendRedirect("http://localhost:8080/bookmail/pages/user/regist.jsp"); //还是用请求转发来做吧.
@@ -62,15 +65,15 @@ public class UserControl extends BaseControl {
         }
 
         //判断用户是否已经存在
-        if(userService.existUser(username)){
+        if(userService.existUser(user.getUsername())){
             req.setAttribute("msg", "用户名已经存在，请重新注册");
-            req.setAttribute("username", username);
+            req.setAttribute("username", user.getUsername());
             System.out.println("用户名已经存在，请重新注册"); //怎么发送给前端？
             //resp.sendRedirect("http://localhost:8080/bookmail/pages/user/regist.jsp");
             req.getRequestDispatcher("/pages/user/regist.jsp").forward(req, resp);
             return;
         }
-        userService.registUser(new User(username, password, email));
+        userService.registUser(user);
         System.out.println("注册成功，请登录");  //需要弹窗提示？
         resp.sendRedirect("http://localhost:8080/bookmail/pages/user/regist_success.jsp");
     }
