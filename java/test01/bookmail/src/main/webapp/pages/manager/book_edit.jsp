@@ -88,6 +88,7 @@
 			<form action="http://localhost:8080/bookmail/manager/bookControl" method="post">
 				<input type="hidden" name="action" value="editBook">
 				<input type="hidden" name="id" value="${book.id}">
+				<input type="hidden" name="currPageNum" value="${currPageNum}">
 				<table>
 					<tr>
 						<td>名称</td>

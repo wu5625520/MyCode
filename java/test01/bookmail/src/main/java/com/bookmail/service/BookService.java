@@ -42,6 +42,13 @@ public interface BookService {
     　　* @date 2021/7/21 15:23
     　　*/
     public Page<Book> getPage(Integer currPage, Integer pageSize);
+    /**
+    　　* @description: 通过传入的page，返回页码显示的开始页和结束页
+    　　* @author wxy
+    　　* @date 2021/7/22 14:16
+    　　*/
+    public List<Integer> getPageBeginAndEnd(Page page);
 
 
+    Page<Book> getPageByPrice(Float minPrice, Float maxPrice, int currPageNum, Integer defaultPageSize);
 }

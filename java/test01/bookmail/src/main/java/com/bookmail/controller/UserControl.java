@@ -22,6 +22,16 @@ import java.util.Map;
 public class UserControl extends BaseControl {
     UserService userService = new UserServiceImpl();
 
+    @Override
+    protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        doPost(req, resp);
+    }
+
+    protected void logout(HttpServletRequest req, HttpServletResponse resp) throws IOException {
+        req.getSession().invalidate();
+        resp.sendRedirect(req.getContextPath());
+    }
+
     protected void login(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 //        System.out.println(req.getParameterMap());
         for(Map.Entry<String, String[]> entry: req.getParameterMap().entrySet()){
@@ -44,6 +54,7 @@ public class UserControl extends BaseControl {
                     req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
                     break;
                 case 2:
+                    req.getSession().setAttribute("username", req.getParameter("username"));
                     resp.sendRedirect("http://localhost:8080/bookmail/pages/user/login_success.jsp");
                     break;
             }
@@ -52,7 +63,9 @@ public class UserControl extends BaseControl {
     protected void regist(HttpServletRequest req, HttpServletResponse resp) throws IOException, ServletException {
         User user = ToBeanUtils.paramToBean(req.getParameterMap(), new User());
         String code = req.getParameter("code");
-        if(!"666".equalsIgnoreCase(code)){
+        String kaptcha_session_key = (String) req.getSession().getAttribute("KAPTCHA_SESSION_KEY");
+        req.getSession().removeAttribute("KAPTCHA_SESSION_KEY");
+        if(kaptcha_session_key == null || !kaptcha_session_key.equalsIgnoreCase(code)){
             req.setAttribute("msg", "验证码错误");
             req.setAttribute("username", user.getUsername());
             req.setAttribute("password", user.getPassword());

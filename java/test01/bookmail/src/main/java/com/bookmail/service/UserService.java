@@ -2,6 +2,8 @@ package com.bookmail.service;
 
 import com.bookmail.bean.User;
 
+import java.sql.SQLException;
+
 /**
  * @author wxy
  * @title: UserService

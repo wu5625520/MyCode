@@ -9,9 +9,9 @@
 <div id="header">
     <img class="logo_img" alt="" src="http://localhost:8080/bookmail/static/img/logo.gif" >
     <div>
-        <span>欢迎<span class="um_span">韩总</span>光临尚硅谷书城</span>
-        <a href="http://localhost:8080/bookmail/pages/order/order.jsp">我的订单</a>
-        <a href="http://localhost:8080/bookmail/index.jsp">注销</a>&nbsp;&nbsp;
+        <span>欢迎<span class="um_span">${sessionScope.username}</span>光临尚硅谷书城</span>
+        <a href="http://localhost:8080/bookmail/orderControl?action=clientOrders">我的订单</a>
+        <a href="http://localhost:8080/bookmail/userControl?action=logout">注销</a>
         <a href="http://localhost:8080/bookmail/index.jsp">返回</a>
     </div>
 </div>

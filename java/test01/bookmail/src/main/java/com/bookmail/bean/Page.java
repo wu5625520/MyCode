@@ -14,9 +14,19 @@ public class Page <T>{
     private Integer currPageNum;
     private List<T> items;
     private Integer pageSize;
+    private String url;
     public static final Integer DEFAULT_PAGE_SIZE = 4;
 
+
     public Page() {
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     public Page(Integer totalPage, Integer totalNum, Integer currPageNum, List<T> items, Integer pageSize) {
@@ -75,6 +85,7 @@ public class Page <T>{
                 ", currPageNum=" + currPageNum +
                 ", items=" + items +
                 ", pageSize=" + pageSize +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

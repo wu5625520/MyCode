@@ -10,6 +10,7 @@ import com.bookmail.utils.JdbcUtils;
 import sun.rmi.server.UnicastServerRef;
 
 import java.sql.Connection;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -40,7 +41,7 @@ public class Test {
         //User zz = new User(2, "zz", "123", "zz@123.com");
         //userDao.saveUser(zz);
         //System.out.println(userDao.deleteByName("zz"));
-        System.out.println(userDao.queryAll());
+//        System.out.println(userDao.queryAll());
     }
 
     /**
@@ -64,5 +65,10 @@ public class Test {
         List<Book> allBook = bookService.getAllBook();
         System.out.println(allBook);
 
+    }
+    @org.junit.jupiter.api.Test
+    public void testTime(){
+        Date date = new Date();
+        System.out.println(date.getTime());
     }
 }

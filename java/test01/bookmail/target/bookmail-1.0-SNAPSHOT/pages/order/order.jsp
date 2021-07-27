@@ -1,4 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,36 +16,35 @@
 <body>
 
 	<%@include file="../common/header.jsp"%>
+	<%@include file="../common/head.jsp"%>
 	
 	<div id="main">
 		
 		<table>
 			<tr>
+				<td>订单号</td>
 				<td>日期</td>
 				<td>金额</td>
 				<td>状态</td>
 				<td>详情</td>
-			</tr>		
-			<tr>
-				<td>2015.04.23</td>
-				<td>90.00</td>
-				<td>未发货</td>
-				<td><a href="#">查看详情</a></td>
-			</tr>	
-			
-			<tr>
-				<td>2015.04.20</td>
-				<td>20.00</td>
-				<td>已发货</td>
-				<td><a href="#">查看详情</a></td>
-			</tr>	
-			
-			<tr>
-				<td>2014.01.23</td>
-				<td>190.00</td>
-				<td>已完成</td>
-				<td><a href="#">查看详情</a></td>
-			</tr>		
+			</tr>
+			<c:forEach items="${requestScope.orders}" var="order">
+				<tr>
+					<td>${order.orderid}</td>
+					<td>${order.creatdate}</td>
+					<td>${order.price}</td>
+					<c:if test="${order.status == 0}">
+						<td>未发货</td>
+					</c:if>
+					<c:if test="${order.status == 1}">
+						<td>已发货</td>
+					</c:if>
+					<c:if test="${order.status == 2}">
+						<td>已签收</td>
+					</c:if>
+					<td><a href="http://localhost:8080/bookmail/orderControl?action=clientOrdersDetails&orderid=${order.orderid}">查看详情</a></td>
+				</tr>
+			</c:forEach>
 		</table>
 		
 	

@@ -13,6 +13,15 @@
 			$("a.deleteClass").click(function(){
 				return confirm("Do you confirm to delete the [" + $(this).parent().parent().find("td:first").text() + "] ?");
 			});
+			$("#toPageNum").click(function(){
+				var page = $("input.toPageNum").val();
+				if(page > ${page.totalPage} || page < 1){
+					alert("输入页码错误！");
+					return false;
+				}
+				// alert(page);
+				window.location.href="${page.url}&currPageNum=" + page;
+			})
 		});
 	</script>
 
@@ -34,15 +43,15 @@
 				<td>库存</td>
 				<td colspan="2">操作</td>
 			</tr>
-			<c:forEach varStatus="status" items="${requestScope.books}" var="book">
+			<c:forEach varStatus="status" items="${requestScope.page.items}" var="book">
 				<tr>
 					<td>${book.name}</td>
 					<td>${book.price}</td>
 					<td>${book.author}</td>
 					<td>${book.sales}</td>
 					<td>${book.stock}</td>
-					<td><a href="http://localhost:8080/bookmail/manager/bookControl?action=getBook&id=${book.id}">修改</a></td>
-					<td><a class="deleteClass" href="http://localhost:8080/bookmail/manager/bookControl?action=deleteBook&id=${book.id}">删除</a></td>
+					<td><a href="http://localhost:8080/bookmail/manager/bookControl?action=getBook&id=${book.id}&currPageNum=${page.currPageNum}">修改</a></td>
+					<td><a class="deleteClass" href="http://localhost:8080/bookmail/manager/bookControl?action=deleteBook&id=${book.id}&currPageNum=${page.currPageNum}">删除</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
@@ -55,18 +64,7 @@
 				<td><a href="http://localhost:8080/bookmail/pages/manager/book_edit.jsp">添加图书</a></td>
 			</tr>	
 		</table>
-		<div align="center">
-			<a>首页</a>
-			<a>上一页</a>
-			<a>当前页</a>
-			<a>下一页</a>
-			<a>尾页</a>
-			<a>共x页，xx条记录</a>
-			<a>跳转到第</a>
-			<input type="text" style="width: 20px">
-			<a>页</a>
-			<button type="submit">确定</button>
-		</div>
+		<%@include file="../common/page_nav.jsp"%>
 	</div>
 
 	<%@include file="../common/bottom.jsp"%>

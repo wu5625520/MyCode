@@ -2,6 +2,7 @@ package com.bookmail.dao;
 
 import com.bookmail.bean.Book;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -16,42 +17,45 @@ public interface BookDao {
     　　* @author wxy
     　　* @date 2021/7/19 14:36
     　　*/
-    public Book queryById(Integer id);
+    public Book queryById(Integer id) throws SQLException;
     /**
     　　* @description: TODO
     　　* @author wxy
     　　* @date 2021/7/19 14:38
     　　*/
-    public List<Book> queryAll();
+    public List<Book> queryAll() throws SQLException;
     /**
     　　* @description: 返回影响的行数？
     　　* @author wxy
     　　* @date 2021/7/19 14:40
     　　*/
-    public Integer addBook(Book book);
+    public Integer addBook(Book book) throws SQLException;
     /**
     　　* @description: TODO
     　　* @author wxy
     　　* @date 2021/7/19 14:41
     　　*/
-    public Integer deleteById(int id);
+    public Integer deleteById(int id) throws SQLException;
     /**
 　　* @description: 根据传进来的book，更新指定id的数据
 　　* @author wxy
 　　* @date 2021/7/19 16:42
 　　*/
-    public Integer updateById(Book book, Integer id);
+    public Integer updateById(Book book, Integer id) throws SQLException;
     /**
     　　* @description: TODO
     　　* @author wxy
     　　* @date 2021/7/21 15:13
     　　*/
-    public Integer getTotalNum();
+    public Integer getTotalNum() throws SQLException;
     /**
     　　* @description: TODO
     　　* @author wxy
     　　* @date 2021/7/21 15:15
     　　*/
-    public List<Book> getBooksByPage(Integer currPage, Integer pageSize);
+    public List<Book> getBooksByPage(Integer currPage, Integer pageSize) throws SQLException;
 
+    Integer getTotalNumByPrice(Float minPrice, Float maxPrice) throws SQLException;
+
+    List<Book> getBooksByPageAndPrice(Float minPrice, Float maxPrice, int currPageNum, Integer pageSize) throws SQLException;
 }

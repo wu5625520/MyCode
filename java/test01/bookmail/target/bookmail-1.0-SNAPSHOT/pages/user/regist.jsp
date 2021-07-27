@@ -18,6 +18,11 @@
 	//页面加载完成之后
 	//给注册按钮绑定单击事件
 	$(function(){
+
+
+		$("#code_img").click(function (){
+			this.src = "http://localhost:8080/bookmail/code.jpg?d=" + new Date();
+		});
 		// alert("111111");
 		$("#sub_btn").click(function() {
 			//1判断用户名
@@ -116,7 +121,7 @@
 									<br />
 									<label>验证码：</label>
 									<input class="itxt" type="text" style="width: 150px;" name="code" id="code" value=${empty code ? "666" : code} />
-									<img alt="" src="http://localhost:8080/bookmail/static/img/code.bmp" style="float: right; margin-right: 40px">
+									<img id="code_img" alt="" src="http://localhost:8080/bookmail/code.jpg" style="float: right; margin-right: 40px; width: 80px; height: 40px">
 									<br />
 									<br />
 									<input type="submit" value="注册" id="sub_btn" />

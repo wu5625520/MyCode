@@ -5,6 +5,8 @@ import com.bookmail.dao.UserDao;
 import com.bookmail.dao.impl.UserDaoImpl;
 import com.bookmail.service.UserService;
 
+import java.sql.SQLException;
+
 /**
  * @author wxy
  * @title: UserServiceImpl
@@ -20,8 +22,12 @@ public class UserServiceImpl implements UserService {
     　　* @date 2021/7/14 14:38
     　　*/
     @Override
-    public void registUser(User user) {
-        userDao.saveUser(user);
+    public void registUser(User user){
+        try {
+            userDao.saveUser(user);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
     /**
@@ -31,16 +37,21 @@ public class UserServiceImpl implements UserService {
     　　* @date 2021/7/14 14:21
     　　*/
     @Override
-    public int login(User user) {
+    public int login(User user){
         //先判断用户名存不存在
-        if(existUser(user.getUsername())){
-            User queryUser = userDao.queryByName(user.getUsername());
-            if (queryUser.getPassword().equals(user.getPassword()))
-                return 2;
-            else
-                return 1;
+        try {
+            if(existUser(user.getUsername())){
+                User queryUser = userDao.queryByName(user.getUsername());
+                if (queryUser.getPassword().equals(user.getPassword()))
+                    return 2;
+                else
+                    return 1;
+            }
+            else return 0;
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
         }
-        else return 0;
+        return 0;
     }
 
     /**
@@ -49,8 +60,13 @@ public class UserServiceImpl implements UserService {
     　　* @date 2021/7/13 20:40
     　　*/
     @Override
-    public boolean existUser(String name) {
-        User user = userDao.queryByName(name);
+    public boolean existUser(String name){
+        User user = null;
+        try {
+            user = userDao.queryByName(name);
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
         return user != null;
     }
 }

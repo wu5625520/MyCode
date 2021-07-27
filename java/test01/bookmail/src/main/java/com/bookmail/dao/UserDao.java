@@ -2,6 +2,7 @@ package com.bookmail.dao;
 
 import com.bookmail.bean.User;
 
+import java.sql.SQLException;
 import java.util.List;
 
 /**
@@ -12,8 +13,8 @@ import java.util.List;
  */
 public interface UserDao {
 
-    public User queryByName(String name);
-    public void saveUser(User user);
-    public int deleteByName(String name);
-    public List<User> queryAll();
+    public User queryByName(String name) throws SQLException;
+    public void saveUser(User user) throws SQLException;
+    public int deleteByName(String name) throws SQLException;
+    public List<User> queryAll() throws SQLException;
 }
