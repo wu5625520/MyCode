@@ -10,9 +10,10 @@
 	//使用$()代替window.onload
 	$(function(){
 		//使用选择器获取按钮对象，随后绑定单击响应函数
-		$("#btnId").click(function(){
+		$("a.delete").click(function(){
 			//弹出Hello
 			alert('Hello');
+			return confirm("这是一个确认对话框 ");
 		});
 	});
 
@@ -23,6 +24,7 @@
 <body>
 
 	<button id="btnId">SayHello</button>
+	<a class="delete" href="03.核心函数.html">点我</a>
 
 </body>
 </html>

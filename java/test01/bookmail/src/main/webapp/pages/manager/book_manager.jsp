@@ -28,7 +28,7 @@
 </head>
 <body>
 	<div id="header">
-			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/static/img/logo.gif" >
+			<img class="logo_img" alt="" src="http://localhost:8080/SSM/resource/static/img/logo.gif" >
 			<span class="wel_word">图书管理系统</span>
 			<%@include file="../common/manage.jsp"%>
 	</div>
@@ -50,8 +50,8 @@
 					<td>${book.author}</td>
 					<td>${book.sales}</td>
 					<td>${book.stock}</td>
-					<td><a href="http://localhost:8080/bookmail/manager/bookControl?action=getBook&id=${book.id}&currPageNum=${page.currPageNum}">修改</a></td>
-					<td><a class="deleteClass" href="http://localhost:8080/bookmail/manager/bookControl?action=deleteBook&id=${book.id}&currPageNum=${page.currPageNum}">删除</a></td>
+					<td><a href="http://localhost:8080/SSM/manager/bookControl?action=getBook&id=${book.id}&currPageNum=${page.currPageNum}">修改</a></td>
+					<td><a class="deleteClass" href="http://localhost:8080/SSM/manager/bookControl?action=deleteBook&id=${book.id}&currPageNum=${page.currPageNum}">删除</a></td>
 				</tr>
 			</c:forEach>
 			<tr>
@@ -61,7 +61,7 @@
 				<td></td>
 				<td></td>
 				<td></td>
-				<td><a href="http://localhost:8080/bookmail/pages/manager/book_edit.jsp">添加图书</a></td>
+				<td><a href="http://localhost:8080/SSM/pages/manager/book_edit.jsp">添加图书</a></td>
 			</tr>	
 		</table>
 		<%@include file="../common/page_nav.jsp"%>

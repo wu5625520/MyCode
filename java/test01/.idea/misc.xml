@@ -2,9 +2,13 @@
 <project version="4">
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="web" url="file://$PROJECT_DIR$/bookmail" />
-    <file type="web" url="file://$PROJECT_DIR$/bookmail" />
+    <file type="web" url="file://$PROJECT_DIR$/CookieStudy" />
+    <file type="web" url="file://$PROJECT_DIR$/SSM2-bookmail" />
     <file type="web" url="file://$PROJECT_DIR$/studyservlet" />
     <file type="web" url="file://$PROJECT_DIR$/testtomcat" />
+  </component>
+  <component name="JavadocGenerationManager">
+    <option name="OUTPUT_DIRECTORY" value="$USER_HOME$/Desktop" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
@@ -12,7 +16,8 @@
         <option value="$PROJECT_DIR$/testtomcat/pom.xml" />
         <option value="$PROJECT_DIR$/book/pom.xml" />
         <option value="$PROJECT_DIR$/boomail/pom.xml" />
-        <option value="$PROJECT_DIR$/bookmail/pom.xml" />
+        <option value="$PROJECT_DIR$/CookieStudy/pom.xml" />
+        <option value="$PROJECT_DIR$/SSM2-bookmail/pom.xml" />
       </list>
     </option>
   </component>

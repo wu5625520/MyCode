@@ -23,12 +23,12 @@ public class FileDownload extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String downloadFileName = "zz.jpg";
         ServletContext servletContext = getServletContext();
-        String mimeType = servletContext.getMimeType("/static/img/" + downloadFileName);
+        String mimeType = servletContext.getMimeType("/resource/static/img/" + downloadFileName);
         System.out.println("要传输文件的类型是：" + mimeType);
         resp.setContentType(mimeType);
         String str = "attachment; fileName=" + URLEncoder.encode("中文.jpg", "UTF-8");
         resp.setHeader("Content-Disposition", str);
-        InputStream resourceAsStream = servletContext.getResourceAsStream("/static/img/" + downloadFileName);
+        InputStream resourceAsStream = servletContext.getResourceAsStream("/resource/static/img/" + downloadFileName);
         ServletOutputStream outputStream = resp.getOutputStream();
 
         IOUtils.copy(resourceAsStream, outputStream);

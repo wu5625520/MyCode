@@ -17,7 +17,7 @@ public class LoginFilter implements Filter {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
         HttpServletResponse resp = (HttpServletResponse) servletResponse;
         if(req.getSession().getAttribute("username") == null){
-            resp.sendRedirect("/bookmail/pages/user/login.jsp");
+            resp.sendRedirect("/SSM/pages/user/login.jsp");
         }
         filterChain.doFilter(servletRequest, servletResponse);
     }

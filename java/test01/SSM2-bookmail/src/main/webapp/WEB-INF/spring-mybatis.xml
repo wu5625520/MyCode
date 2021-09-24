@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+<!-- 包扫描，control注解的类不扫描，交给mvc创建 -->
+    <context:component-scan base-package="com">
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+<!--  数据库连接池  -->
+    <!--  配置数据源  -->
+    <context:property-placeholder location="WEB-INF/jdbc.properities"/>
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${driverClassName}"/>
+        <property name="url" value="${url}"/>
+<!--        properties 中不能用 username 作为变量，这种方式会注入自己的系统环境变量的 用户名，本来是 root ，不应是那个 windows 用户名-->
+        <property name="username" value="${user}"/>
+        <property name="password" value="${password}"/>
+    </bean>
+    <!--  事务？原理？  -->
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+    <tx:annotation-driven transaction-manager="dataSourceTransactionManager"/>
+
+<!--  整合mybatis  -->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--     数据源   -->
+        <property name="dataSource" ref="dataSource"/>
+        <!--    mybatis配置文件   -->
+        <property name="configLocation" value="WEB-INF/mybatis-config.xml"/>
+        <!--   Mybatis的sql映射文件?为什么有些地方路径名要用“.”有些地方要用“/”     -->
+        <!--   java类、包相关的用.配置文件位置用/     -->
+        <property name="mapperLocations" value="resource/mapper/*.xml"/>
+        <property name="typeAliasesPackage" value="com.bean"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor"></bean>
+            </array>
+        </property>
+    </bean>
+    <!--  为mapper接口批量生成代理bean  默认id是接口名首字母小写-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.Dao"/>
+    </bean>
+</beans>

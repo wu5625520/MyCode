@@ -35,7 +35,7 @@ public class IndexControl extends BaseControl{
         }
 
         Page<Book> page = bookService.getPage(currPageNum, Page.DEFAULT_PAGE_SIZE);
-        page.setUrl("http://localhost:8080/bookmail/client/bookControl?action=listBookByPage");
+        page.setUrl("http://localhost:8080/SSM/client/bookControl?action=listBookByPage");
         req.setAttribute("page", page);
 
         List<Integer> pageBeginAndEnd = bookService.getPageBeginAndEnd(page);
@@ -59,7 +59,7 @@ public class IndexControl extends BaseControl{
             currPageNum = Integer.parseInt(req.getParameter("currPageNum")) > 0 ? Integer.parseInt(req.getParameter("currPageNum")) : 1;
         }
         Page<Book> page = bookService.getPageByPrice(minPrice, maxPrice, currPageNum, Page.DEFAULT_PAGE_SIZE);
-        page.setUrl("http://localhost:8080/bookmail/client/bookControl?action=listBookByPageAndPrice&min=" + minPrice +"&max=" + maxPrice);
+        page.setUrl("http://localhost:8080/SSM/client/bookControl?action=listBookByPageAndPrice&min=" + minPrice +"&max=" + maxPrice);
         req.setAttribute("page", page);
         req.setAttribute("minPrice",minPrice);
         req.setAttribute("maxPrice",maxPrice);
@@ -77,7 +77,7 @@ public class IndexControl extends BaseControl{
         }
 
         Page<Book> page = bookService.getPage(currPageNum, Page.DEFAULT_PAGE_SIZE);
-        page.setUrl("http://localhost:8080/bookmail/client/bookControl?action=listBookByPage");
+        page.setUrl("http://localhost:8080/SSM/client/bookControl?action=listBookByPage");
         req.setAttribute("page", page);
 
         List<Integer> pageBeginAndEnd = bookService.getPageBeginAndEnd(page);

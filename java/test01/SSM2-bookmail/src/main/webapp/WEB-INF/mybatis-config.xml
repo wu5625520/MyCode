@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <settings>
+        <!--    映射下划线到驼峰命名法    -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+        <!--    mybatisd对null值得默认处理    -->
+        <setting name="jdbcTypeForNull" value="NULL"/>
+        <!--    设置加载的数据时按需还是全部    -->
+        <setting name="aggressiveLazyLoading" value="false"/>
+    </settings>
+
+<!--    <plugins>-->
+<!--        <plugin interceptor="com.github.pagehelper.PageInterceptor"></plugin>-->
+<!--    </plugins>-->
+</configuration>

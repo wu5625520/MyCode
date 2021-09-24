@@ -1,6 +1,6 @@
 package com.bookmail.dao.impl;
 
-import com.bookmail.bean.Orders;
+import com.bean.Orders;
 import com.bookmail.dao.BaseDao;
 import com.bookmail.dao.OrderDao;
 

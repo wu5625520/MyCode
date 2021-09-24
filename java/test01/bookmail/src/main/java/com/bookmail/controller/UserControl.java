@@ -54,6 +54,9 @@ public class UserControl extends BaseControl {
                     req.getRequestDispatcher("/pages/user/login.jsp").forward(req, resp);
                     break;
                 case 2:
+                    if("wxy520".equals(req.getParameter("username"))){
+                        req.getSession().setAttribute("isManager", true);
+                    }
                     req.getSession().setAttribute("username", req.getParameter("username"));
                     resp.sendRedirect("http://localhost:8080/bookmail/pages/user/login_success.jsp");
                     break;

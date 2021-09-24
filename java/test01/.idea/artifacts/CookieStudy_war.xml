@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="CookieStudy:war">
+    <output-path>$PROJECT_DIR$/CookieStudy/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>CookieStudy</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="CookieStudy-1.0-SNAPSHOT.war">
+      <element id="artifact" artifact-name="CookieStudy:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -7,11 +7,12 @@ import com.bookmail.service.UserService;
 import com.bookmail.service.impl.BookServiceImpl;
 import com.bookmail.service.impl.UserServiceImpl;
 import com.bookmail.utils.JdbcUtils;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import sun.rmi.server.UnicastServerRef;
 
 import java.sql.Connection;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author wxy
@@ -42,6 +43,18 @@ public class Test {
         //userDao.saveUser(zz);
         //System.out.println(userDao.deleteByName("zz"));
 //        System.out.println(userDao.queryAll());
+        Map<Integer,User> map = new HashMap<>();
+        map.put(1, new User("wxy","123456"));
+        map.put(2, new User("zz","11111"));
+        System.out.println(map);
+        Gson gson = new Gson();
+        String s = gson.toJson(map);
+        System.out.println(s);
+
+        //转回去
+        Map<Integer,User> map1 = gson.fromJson(s, new TypeToken<HashMap<Integer, User>>(){}.getType());
+        System.out.println(map1);
+
     }
 
     /**

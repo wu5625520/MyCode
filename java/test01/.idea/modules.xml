@@ -2,8 +2,9 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/bookmail/bookmail.iml" filepath="$PROJECT_DIR$/bookmail/bookmail.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bookmail-register/bookmail-register.iml" filepath="$PROJECT_DIR$/bookmail-register/bookmail-register.iml" />
+      <module fileurl="file://$PROJECT_DIR$/CookieStudy/CookieStudy.iml" filepath="$PROJECT_DIR$/CookieStudy/CookieStudy.iml" />
+      <module fileurl="file://$PROJECT_DIR$/SSM2-bookmail/SSM2-bookmail.iml" filepath="$PROJECT_DIR$/SSM2-bookmail/SSM2-bookmail.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bookmail-SSM/bookmail-SSM.iml" filepath="$PROJECT_DIR$/bookmail-SSM/bookmail-SSM.iml" />
       <module fileurl="file://$PROJECT_DIR$/java-web-jQuery/java-web-jQuery.iml" filepath="$PROJECT_DIR$/java-web-jQuery/java-web-jQuery.iml" />
       <module fileurl="file://$PROJECT_DIR$/javase-study/javase-study.iml" filepath="$PROJECT_DIR$/javase-study/javase-study.iml" />
       <module fileurl="file://$PROJECT_DIR$/test01.iml" filepath="$PROJECT_DIR$/test01.iml" />

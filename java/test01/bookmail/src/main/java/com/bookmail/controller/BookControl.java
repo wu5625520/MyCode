@@ -2,7 +2,6 @@ package com.bookmail.controller;
 
 import com.bookmail.bean.Book;
 import com.bookmail.bean.Page;
-import com.bookmail.service.BookService;
 import com.bookmail.service.impl.BookServiceImpl;
 import com.bookmail.utils.ToBeanUtils;
 import com.mysql.cj.x.protobuf.MysqlxDatatypes;
@@ -21,7 +20,6 @@ import java.util.List;
  */
 public class BookControl extends BaseControl{
     BookService bookService = new BookServiceImpl();
-
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         doPost(req, resp);

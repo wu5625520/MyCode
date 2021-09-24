@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>尚硅谷会员注册页面</title>
-<link type="text/css" rel="stylesheet" href="../../static/css/style.css" >
+<link type="text/css" rel="stylesheet" href="../../resource/static/css/style.css" >
 <style type="text/css">
 	h1 {
 		text-align: center;

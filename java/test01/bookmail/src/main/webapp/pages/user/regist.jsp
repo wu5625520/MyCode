@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <title>尚硅谷会员注册页面</title>
-<link type="text/css" rel="stylesheet" href="http://localhost:8080/bookmail/static/css/style.css" >
+<link type="text/css" rel="stylesheet" href="http://localhost:8080/SSM/resource/static/css/style.css" >
 <style type="text/css">
 	.login_form{
 		height:420px;
@@ -13,7 +13,7 @@
 	
 </style>
 </head>
-<script type="text/javascript" src="http://localhost:8080/bookmail/static/script/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="http://localhost:8080/SSM/resource/static/script/jquery-1.7.2.js"></script>
 <script type="text/javascript">
 	//页面加载完成之后
 	//给注册按钮绑定单击事件
@@ -21,7 +21,7 @@
 
 
 		$("#code_img").click(function (){
-			this.src = "http://localhost:8080/bookmail/code.jpg?d=" + new Date();
+			this.src = "http://localhost:8080/SSM/code.jpg?d=" + new Date();
 		});
 		// alert("111111");
 		$("#sub_btn").click(function() {
@@ -84,7 +84,7 @@
 </script>
 <body>
 		<div id="login_header">
-			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/static/img/logo.gif" >
+			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/resource/static/img/logo.gif" >
 		</div>
 		
 			<div class="login_banner">

@@ -9,7 +9,24 @@
 	<%-- 静态包含 base标签、css样式、jQuery文件//算了，先就这样吧 --%>
 	<%@include file="common/head.jsp"%>
 	<script type="text/javascript">
+		//这种不行，必须得用class标签？
+		test = function (){
+			var id = $(this).attr("book_id");
+			$.getJSON("http://localhost:8080/bookmail/cartControl", "action=addItem&id=" + id, function (data) {
+				$("#cartCount").text("您的购物车中有" + data.sumCount + "件商品");
+				$("#lastAddItem").text("您刚刚将【"+ data.lastName + "】加入到购物车中");
+			})
+		};
+
 		$(function (){
+			$("button.addToCart").click(function () {
+				var id = $(this).attr("book_id");
+				$.getJSON("http://localhost:8080/bookmail/cartControl", "action=addItem&id=" + id, function (data) {
+					$("#cartCount").text("您的购物车中有" + data.sumCount + "件商品");
+					$("#lastAddItem").text("您刚刚将【"+ data.lastName + "】加入到购物车中");
+				})
+			});
+
 			$("#toPageNum").click(function(){
 				var page = $("input.toPageNum").val();
 				if(page > ${page.totalPage} || page < 1){
@@ -38,7 +55,7 @@
 </head>
 <body>
 	<div id="header">
-			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/static/img/logo.gif" >
+			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/resource/static/img/logo.gif" >
 			<span class="wel_word">网上书城</span>
 			<div>
 				<c:if test="${empty sessionScope.username}">
@@ -51,7 +68,9 @@
 					<a href="http://localhost:8080/bookmail/userControl?action=logout">注销</a>
 				</c:if>
 				<a href="http://localhost:8080/bookmail/pages/cart/cart.jsp">购物车</a>
-				<a href="http://localhost:8080/bookmail/pages/manager/manager.jsp">后台管理</a>
+				<c:if test="${sessionScope.isManager}">
+					<a onclick="manager()" href="http://localhost:8080/bookmail/pages/manager/manager.jsp">后台管理</a>
+				</c:if>
 			</div>
 	</div>
 
@@ -66,12 +85,15 @@
 				</form>
 			</div>
 			<div style="text-align: center">
-				<span>您的购物车中有${sessionScope.cart.sumCount}件商品</span>
-				<c:if test="${not empty sessionScope.lastName}">
+				<span id="cartCount">您的购物车中有${empty sessionScope.cart.sumCount ? 0 : sessionScope.cart.sumCount}件商品</span>
+<%--				<c:if test="${not empty sessionScope.lastName}">--%>
+<%--					<div>--%>
+<%--						您刚刚将<span id="lastAddItem" style="color: red">${sessionScope.lastName}</span>加入到了购物车中--%>
+<%--					</div>--%>
+<%--				</c:if>--%>
 					<div>
-						您刚刚将<span style="color: red">${sessionScope.lastName}</span>加入到了购物车中
+						<span id="lastAddItem" style="color: red"></span>
 					</div>
-				</c:if>
 
 			</div>
 			<c:forEach varStatus="status" items="${requestScope.page.items}" var="book">
@@ -101,7 +123,8 @@
 						<span class="sp2">${book.stock}</span>
 					</div>
 					<div class="book_add">
-						<button onclick="javascrtpt:window.location.href='http://localhost:8080/bookmail/cartControl?action=addItem&id=${book.id}&name=${book.name}&price=${book.price}'">加入购物车</button>
+<%--						<button book_id=${book.id} onclick="javascrtpt:window.location.href='http://localhost:8080/bookmail/cartControl?action=addItem&id=${book.id}">加入购物车</button>--%>
+						<button book_id="${book.id}" class="addToCart">加入购物车</button>
 					</div>
 				</div>
 			</div>

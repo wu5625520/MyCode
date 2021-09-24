@@ -6,12 +6,17 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="CookieStudy" />
         <module name="testtomcat" />
-        <module name="bookmail" />
+        <module name="SSM2-bookmail" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="bookmail" target="1.8" />
+      <module name="bookmail-SSM" target="1.5" />
+      <module name="CookieStudy" target="1.8" />
+      <module name="hadoop" target="8" />
+      <module name="SSM2-bookmail" target="1.7" />
       <module name="studyservlet" target="1.8" />
       <module name="testtomcat" target="1.8" />
     </bytecodeTargetLevel>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd  ">
+
+    <mvc:annotation-driven/>
+<!--  把springmvc处理不了的静态资源访问请求交给tomcat处理  -->
+    <mvc:default-servlet-handler/>
+<!--  springmvc只扫描controler网课讲的需要设置use-default-filter=false才行？我没设置也ok？难道版本升级了？-->
+<!--   我设置的扫描具体包里所有注解，而他设置的和spring一样整个包  -->
+<!--   use-default-filter=false搭配include-filter使用。默认情况下，该属性是 true ，作用就是：是否自动扫描带有 @Component、@Repository、@Service 和 @Controller 的类；
+如果把该属性设置成 false，那么就可以自定义过滤要扫描的 Bean
+<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>  -->
+    <context:component-scan base-package="com.controler"/>
+<!--  配置直接响应的页面，因为WEB-INFO下的资源无法直接访问  -->
+    <mvc:view-controller path="/loginPage" view-name="user/login"/>
+    <mvc:view-controller path="/registPage" view-name="user/regist"/>
+    <mvc:view-controller path="/user/regist_successPage" view-name="/user/regist_success"/>
+    <mvc:view-controller path="/manager/managerPage" view-name="/manager/manager"/>
+    <mvc:view-controller path="/client/cartPage" view-name="/cart/cart"/>
+    <mvc:view-controller path="/client/checkoutPage" view-name="/cart/checkout"/>
+    <mvc:view-controller path="/order/order_details" view-name="/order/order_details"/>
+
+
+<!--  配置视图解析器：为什么放在这？不和dispatcher放在一起？不放在web.xml中
+            这不是一个servlet，dispatcher是一个servlet，是web3大组件之一-->
+    <bean id="internalResourceViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/" />
+        <property name="suffix" value=".jsp" />
+    </bean>
+</beans>

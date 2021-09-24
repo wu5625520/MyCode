@@ -4,12 +4,12 @@
 <head>
 <meta charset="UTF-8">
 <title>订单管理</title>
-<link type="text/css" rel="stylesheet" href="http://localhost:8080/bookmail/static/css/style.css" >
+<link type="text/css" rel="stylesheet" href="http://localhost:8080/bookmail/resource/static/css/style.css" >
 </head>
 <body>
 	
 	<div id="header">
-			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/static/img/logo.gif" >
+			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/resource/static/img/logo.gif" >
 			<span class="wel_word">订单管理系统</span>
 			<%@include file="../common/manage.jsp"%>
 	</div>

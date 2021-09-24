@@ -23,7 +23,7 @@
 				var id = $(this).attr('bookid');
 				if(confirm("你确定要修改【" + name + "】的数量为：【" + count +"】吗？"))
 				{
-					window.location.href="http://localhost:8080/bookmail/cartControl?action=changeCount&id=" + id + "&count=" + count;
+					window.location.href="http://localhost:8080/SSM/cartControl?action=changeCount&id=" + id + "&count=" + count;
 				}
 				else{
 					this.value = this.defaultValue;
@@ -34,7 +34,7 @@
 				var name = $(this).parent().parent().find("td:first").text();
 				var id = $(this).attr('bookid');
 				if(confirm("are you confirm to delete the 【" + name + "】?")){
-					window.location.href="http://localhost:8080/bookmail/cartControl?action=deleteItem&id=" + id;
+					window.location.href="http://localhost:8080/SSM/cartControl?action=deleteItem&id=" + id;
 				}
 			})
 		})
@@ -73,8 +73,8 @@
 		<div class="cart_info">
 			<span class="cart_span">购物车中共有<span class="b_count">${empty sessionScope.cart.sumCount ? 0 : sessionScope.cart.sumCount}</span>件商品</span>
 			<span class="cart_span">总金额<span class="b_price">${empty sessionScope.cart.sumPrice ? 0 : sessionScope.cart.sumPrice}</span>元</span>
-			<span class="cart_span"><a href="http://localhost:8080/bookmail/cartControl?action=deleteAll">清空购物车</a></span>
-			<span class="cart_span"><a href="http://localhost:8080/bookmail/orderControl?action=creatOrder">去结账</a></span>
+			<span class="cart_span"><a href="http://localhost:8080/SSM/cartControl?action=deleteAll">清空购物车</a></span>
+			<span class="cart_span"><a href="http://localhost:8080/SSM/orderControl?action=creatOrder">去结账</a></span>
 		</div>
 	
 	</div>

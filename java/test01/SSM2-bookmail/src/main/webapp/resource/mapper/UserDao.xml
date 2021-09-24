@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.Dao.UserDao">
+    <!--    public User queryByName(String name) throws SQLException;-->
+    <select id="queryByName" resultType="com.bean.User">
+        SELECT * FROM user WHERE username = #{userName}
+    </select>
+    <!--    public List<User> queryAll() throws SQLException;-->
+    <select id="queryAll" resultType="com.bean.User">
+        SELECT * FROM user
+    </select>
+    <!--    public void saveUser(User user) throws SQLException;-->
+    <insert id="saveUser" parameterType="com.bean.User">
+        INSERT INTO user(username, password, email) VALUES(#{username}, #{password}, #{email})
+    </insert>
+    <!--    public int deleteByName(String name) throws SQLException;-->
+    <delete id="deleteByName" parameterType="string">
+        DELETE FROM user WHERE id = #{username}
+    </delete>
+</mapper>

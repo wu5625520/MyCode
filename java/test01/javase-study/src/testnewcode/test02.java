@@ -1,5 +1,8 @@
 package testnewcode;
 
+import java.util.ArrayList;
+import java.util.HashMap;
+
 /**
  * @author wxy
  * @title: 测试try 和finally中的return 语句
@@ -8,14 +11,23 @@ package testnewcode;
  */
 public class test02 {
     public static void main(String[] args){
-        System.out.println(get().toString());
+        String s = "9";
+        String show = show(s);
+        System.out.println(show);
+
     }
-    static Integer  get(){
-        int i = 6;
-        try {
-            return i;
-        } finally {
-            i = 888;
-        }
+    public static <T> T show(T t){
+        return t;
+    }
+
+}
+class base01<T>{
+    T t;
+    public base01(T t){
+        this.t = t;
+    }
+    public <E> E show(E e){
+        System.out.println(e);
+        return e;
     }
 }

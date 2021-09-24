@@ -1,0 +1,46 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="SSM2-bookmail:war exploded">
+    <output-path>$PROJECT_DIR$/SSM2-bookmail/target/SSM2-bookmail</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <exploded>true</exploded>
+        <module>SSM2-bookmail</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="SSM2-bookmail" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.2.9.RELEASE" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.4" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp.jstl:javax.servlet.jsp.jstl-api:1.2.2" />
+          <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:8.0.24" />
+          <element id="library" level="project" name="Maven: com.google.protobuf:protobuf-java:3.11.4" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.2.6" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.3.7" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.3.7" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.7" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.5" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.2.1" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:4.0" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.7" />
+        </element>
+      </element>
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/SSM2-bookmail/target/SSM2-bookmail/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="javaee-facet-resources" facet="SSM2-bookmail/web/Web" />
+    </root>
+  </artifact>
+</component>

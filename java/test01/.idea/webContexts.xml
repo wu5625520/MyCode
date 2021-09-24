@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebContextManager">
+    <option name="state">
+      <map>
+        <entry key="file://$PROJECT_DIR$/SSM2-bookmail/src/main/webapp/WEB-INF/pages/index.jsp" value="file://$PROJECT_DIR$/SSM2-bookmail/src/main/webapp/WEB-INF/pages" />
+        <entry key="file://$PROJECT_DIR$/bookmail/src/main/webapp/pages/manager/book_manager.jsp" value="file://$PROJECT_DIR$/bookmail/src/main/webapp/pages/manager" />
+      </map>
+    </option>
+  </component>
+</project>

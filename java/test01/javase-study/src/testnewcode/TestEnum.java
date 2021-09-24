@@ -13,7 +13,8 @@ public class TestEnum {
 //        for(int i = 0; i < values.length; i++)
 //            System.out.println(values[i]);
 //
-        SIZE small = SIZE.valueOf("SMALL");
+        SIZE small;
+        small = SIZE.valueOf("SMALL");
 //        System.out.println(small);
         switch (small) {
             case SMALL:

@@ -1,8 +1,8 @@
-<%@ page import="com.bookmail.service.BookService" %>
-<%@ page import="com.bookmail.service.impl.BookServiceImpl" %>
+<%@ page import="com.bookmail.com.service.BookService" %>
+<%@ page import="com.bookmail.com.service.impl.BookServiceImpl" %>
 <%@ page import="com.bookmail.dao.BookDao" %>
 <%@ page import="com.bookmail.dao.impl.BookDaoImpl" %>
-<%@ page import="com.bookmail.bean.Book" %>
+<%@ page import="com.bookmail.com.bean.Book" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <%--<%--%>
@@ -18,7 +18,7 @@
 <head>
 <meta charset="UTF-8">
 <title>编辑图书</title>
-<link type="text/css" rel="stylesheet" href="http://localhost:8080/bookmail/static/css/style.css" >
+<link type="text/css" rel="stylesheet" href="http://localhost:8080/bookmail/resource/static/css/style.css" >
 <style type="text/css">
 	h1 {
 		text-align: center;
@@ -37,7 +37,7 @@
 	}
 </style>
 </head>
-<script type="text/javascript" src="http://localhost:8080/bookmail/static/script/jquery-1.7.2.js"></script>
+<script type="text/javascript" src="http://localhost:8080/bookmail/resource/static/script/jquery-1.7.2.js"></script>
 <script type="text/javascript">
 	//页面加载完成之后
 	//给注册按钮绑定单击事件
@@ -79,7 +79,7 @@
 </script>
 	<body>
 		<div id="header">
-			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/static/img/logo.gif" >
+			<img class="logo_img" alt="" src="http://localhost:8080/bookmail/resource/static/img/logo.gif" >
 			<span class="wel_word">编辑图书</span>
 			<%@include file="../common/manage.jsp"%>
 		</div>

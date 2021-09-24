@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.Dao.OrderDetailsDao">
+<!--    ArrayList<OrderDetails> queryOrderDetailsByOrderId(String orderid);-->
+    <select id="queryOrderDetailsByOrderId" resultType="com.bean.OrderDetails">
+        SELECT * FROM orderdetails WHERE orderid = #{orderid}
+    </select>
+<!--    int addOrderDetails(OrderDetails orderDetails);-->
+    <insert id="addOrderDetails" parameterType="com.bean.OrderDetails">
+        INSERT INTO orderdetails(name, count, price, totalPrice, orderid)
+        VALUE(#{name}, #{count}, #{price}, #{totalPrice}, #{orderid})
+    </insert>
+</mapper>
